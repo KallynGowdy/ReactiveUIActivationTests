@@ -29,6 +29,12 @@ namespace UwpActivationTests
             this.InitializeComponent();
             this.WhenActivated(d =>
             {
+                // Upon being activated, we should be able to trigger navigation to another page if we want.
+                // However, because ActivationForViewFetcher uses the Loading event,
+                // the Frame is not able to navigate to the page and gets stuck between states.
+                //
+                // I would expect this to display OtherPage,
+                // but instead an empty screen is displayed.
                 Frame.Navigate(typeof(OtherPage));
             });
         }
