@@ -15,30 +15,26 @@ using Windows.UI.Xaml.Navigation;
 using ReactiveUI;
 using UwpActivationTests.ViewModels;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
+// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace UwpActivationTests
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page, IViewFor<MainViewModel>
+    public sealed partial class OtherPage : Page, IViewFor<OtherViewModel>
     {
-        public MainPage()
+        public OtherPage()
         {
             this.InitializeComponent();
-            this.WhenActivated(d =>
-            {
-                Frame.Navigate(typeof(OtherPage));
-            });
         }
 
         object IViewFor.ViewModel
         {
             get { return ViewModel; }
-            set { ViewModel = (MainViewModel) value; }
+            set { ViewModel = (OtherViewModel) value; }
         }
 
-        public MainViewModel ViewModel { get; set; } = new MainViewModel();
+        public OtherViewModel ViewModel { get; set; } = new OtherViewModel();
     }
 }
